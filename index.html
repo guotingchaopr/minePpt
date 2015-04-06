@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=1024" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>HTML5</title>
+    <meta author="guotingchaopr@gmail.com" />
    <link href="http://fonts.useso.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
-    <link href="css/impress-demo.css" rel="stylesheet" />
+    <link href="css/base.css" rel="stylesheet" />
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
@@ -15,10 +16,98 @@
 <div class="fallback-message">
    简单的说你的浏览器看不了 洗洗睡！或者你安装个 chrome or firefox or safari
 </div>
-<div id="impress">
-    <div class="step" data-x="0" data-y="0">
+<div id="impress" data-transition-duration="2000">
+    <!- route 1-0x1000 2- 500,0  3-500,1000 4,0-1000 -->
+    <div class="step slide h2" data-x="0" data-y="0">
+        <strong>HTML5究竟是什么?</strong>
+    </div>
+    <div class="step" data-x="500" data-y="0">
+        <center>HTML5</center>
+        <p>HTML5新的标签 + CSS3 + 新的JS API</p>
+    </div>
+    <div class="step" id="big" data-x="500" data-y="1000" data-scale="3" data-rotate="900">
+            这些内容能分有什么<b>?</b>
+    </div>
+
+    <div class="step slide"  data-x="0" data-y="1000" data-z="1500">
+            <p class="h4">HTML5 新标签<p>
+            <ul>
+                <li>语义化</li>
+                <li>新元素</li>
+                <li>新属性</li>
+                <li>新事件</li>
+            </ul>
+    </div>
+    <div class="step slide"  data-x="0" data-y="2000" data-z="-1000">
+            <p class="h4">CSS3<p>
+            <ul>
+                <li>高级选择器</li>
+                <li>新的效果属性</li>
+                <li>响应式布局</li>
+                <li>动画</li>
+            </ul>
+    </div>
+
+    <div class="step slide"  data-x="0" data-y="3000" data-z="-1000">
+          <p class="h4">JS API<p>
+            <ul>
+                <li>图形绘制(2d canvas)</li>
+                <li>WebSocket/Server-send</li>
+                <li>离线缓存</li>
+                <li>设备访问</li>
+                <li>多媒体操控</li>
+            </ul>  
     </div>
     
+    <div class="step"  data-x="0" data-y="4000"  data-z="-1000" data-scale="5" data-rotate="360" style="font-size:75px;">
+         <b>那学习了上面的内容我们能做出什么东西了?</b>
+    </div>
+
+    <div class="step picture"  data-x="1000" data-y="2000"   style="font-size:75px;">
+            <p>应用</p>
+            <img src="img/weibo.png"  width="380" height="510">
+            <img src="img/douban.png" width="380" height="510">
+    </div>
+    <div class="step picture"  data-x="2000" data-y="2000"   style="font-size:75px;">
+            <p>应用</p>
+            <img src="img/qzone.png"  width="380" height="510">
+            <img src="img/taobao.png" width="380" height="510">
+    </div>
+    
+    <div class="step picture"  data-x="1000" data-y="3000"   style="font-size:75px;">
+            <p>游戏</p>
+            <img src="img/game2.png"  width="380" height="510">
+            <img src="img/game3.png" width="380" height="510">
+    </div>
+    
+    <div class="step picture"  data-x="2000" data-y="3000"   style="font-size:75px;">
+            <p>游戏</p>
+            <img src="img/game1.png"  width="380" height="510">
+            <img src="img/anli1.png" width="380" height="510">
+    </div>
+
+
+    <div class="step picture"  data-x="1000" data-y="4000"   style="font-size:75px;" data-z="500">
+            <p>互动营销</p>
+            <img src="img/report.png"  width="650" height="650">
+    </div>
+    <div class="step picture"  data-x="2000" data-y="4000"   style="font-size:75px;" data-z="1000">
+            <p>互动营销</p>
+            <img src="img/taobao-active.png"  width="650" height="650">
+    </div>
+    
+    <div class="step picture"  data-x="3000" data-y="4000"   style="font-size:75px;" data-z="1500">
+        <span class="bottom3D">看个</span><span class="left3D">直观</span>点的吧
+        <img src="img/animate.gif"  width="316" height="516">
+    </div>
+    
+    
+    <div class="step picture"  data-x="3000" data-y="5000"   style="font-size:125px;" data-z="3000">
+            <b>谢谢</b>
+    </div>
+
+    <div id="overview" class="step" data-x="0" data-y="3000" data-scale="7">
+    </div>
 </div>
 
 <!--<script>
@@ -32,8 +121,8 @@ if ("ontouchstart" in document.documentElement) {
     (function(){
         var ips;
         window.onload = function(){
-            ips = impress();ips.init();
-            var socket = io('http://192.168.0.128/client');
+           ips = impress();ips.init();
+          /*   var socket = io('http://192.168.0.128/client');
             socket.on('connect', function () {
                 socket.on("command",function(data){
                     console.log("服务器命令:"+data.code);
@@ -46,7 +135,7 @@ if ("ontouchstart" in document.documentElement) {
                             break;
                     }
                 });
-            });
+            });*/
         }
     })(window);
 </script>
