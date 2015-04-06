@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>HTML5</title>
+   <link href="http://fonts.useso.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+   简单的说你的浏览器看不了 洗洗睡！或者你安装个 chrome or firefox or safari
+</div>
+<div id="impress">
+    <div class="step" data-x="0" data-y="0">
+    </div>
+    
+</div>
+
+<!--<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>点击左右进行翻页</p>";
+}
+</script>-->
+<script src="js/impress.js"></script>
+<script src="js/socket.io.js" defer></script>
+<script>
+    (function(){
+        var ips;
+        window.onload = function(){
+            ips = impress();ips.init();
+            var socket = io('http://192.168.0.128/client');
+            socket.on('connect', function () {
+                socket.on("command",function(data){
+                    console.log("服务器命令:"+data.code);
+                    switch(data.code){
+                        case "0":
+                            ips.prev();
+                            break;
+                        case "1":
+                            ips.next()
+                            break;
+                    }
+                });
+            });
+        }
+    })(window);
+</script>
+</body>
+</html>
